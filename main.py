@@ -1,11 +1,11 @@
 import json
-from class_User import User
+from vk_module import User
 
 TOKEN = '958eb5d439726565e9333aa30e50e0f937ee432e927f0dbd541c541887d919a7c56f95c04217915c32008'
 user_id = input('Введите id пользователя: ')
 
 
-def get_uncommon_groups(user_id):
+def get_uncommon_groups():
     main_user = User(user_id, TOKEN)
     friends_set = main_user.get_friends_ids()
     groups_ids = main_user.get_strip_groups_list()
@@ -26,22 +26,26 @@ def get_uncommon_groups(user_id):
     return groups_ids
 
 
-def get_data(user_id):
+def get_data():
     data = []
     user = User(user_id, TOKEN)
-    unique_groups = get_uncommon_groups(user_id)
+    unique_groups = get_uncommon_groups()
     for group in user.get_groups()['response']['items']:
         if group['id'] in unique_groups:
             try:
-                data.append({'name': group['name'], 'gid': group['id'], 'members_count': group['members_count']})
+                data.append({'name': group['name'],
+                             'gid': group['id'],
+                             'members_count': group['members_count']})
             except KeyError:
                 continue
     return data
 
 
-def dump_json(user_id):
-    with open('groups.json', 'w', encoding='utf-8') as file:
-        json.dump(get_data(user_id), file, ensure_ascii=False)
+def start():
+    with open('groups.json', 'w', encoding='utf-8') as output:
+        json.dump(get_data(), output, ensure_ascii=False)
+        print('Результат записан в файл groups.json')
 
 
-dump_json(user_id)
+if __name__ == '__main__':
+    start()
