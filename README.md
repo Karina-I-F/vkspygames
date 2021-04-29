@@ -14,11 +14,11 @@
     
 1. Если у Вас не установлен Python, установите его по данным инструкциям:
 
-    *[Инструкция по установке и настройке Python в Windows](https://github.com/netology-code/guides/blob/master/python/python_windows.md)
+    -[Инструкция по установке и настройке Python в Windows](https://github.com/netology-code/guides/blob/master/python/python_windows.md)
     
-    *[Инструкция по установке и настройке Python в Mac](https://github.com/netology-code/guides/blob/master/python/python_mac.md)
+    -[Инструкция по установке и настройке Python в Mac](https://github.com/netology-code/guides/blob/master/python/python_mac.md)
     
-    *[Инструкция по установке и настройке Python в Linux](https://github.com/netology-code/guides/blob/master/python/python_linux.md)
+    -[Инструкция по установке и настройке Python в Linux](https://github.com/netology-code/guides/blob/master/python/python_linux.md)
 
 1. Для установки всех зависимостей запустите командную строку от имени администратора и выполните следующую команду:
 
@@ -44,4 +44,4 @@
     {
     …
     }
-]```
+]
